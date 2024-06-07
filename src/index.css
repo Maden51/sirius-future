@@ -2,8 +2,24 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'CircleRounded-Regular', 'sans-serif';
+  
+}
+
+body {
+  background: #fdfdff;
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: 'CircleRounded-Regular';
+  src: url('../src/assets/fonts/CirceRounded-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'CircleRounded-AltBold';
+  src: url('../src/assets/fonts/CirceRounded-AltBold.ttf');
 }
