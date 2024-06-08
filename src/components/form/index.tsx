@@ -10,7 +10,9 @@ type FormProps = {
   onSubmit: React.FormEventHandler<HTMLFormElement>;
 };
 
-const StyledForm = styled.form``;
+const StyledForm = styled.form`
+  width: 100%;
+`;
 
 const Title = styled.h1`
   font-size: 2.5em;

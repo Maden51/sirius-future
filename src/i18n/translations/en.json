@@ -1,0 +1,11 @@
+{
+  "title": "Login Sirius Future",
+  "login.btn": "Login",
+  "login.subject": "Choose subject",
+  "login.password": "Password",
+  "login.rememberMe": "Remember me",
+  "login.forgotPassword": "Forgot password",
+  "login.coach": "Login as coach",
+  "login.noAcc": "Dont have account?",
+  "login.register": "Register here"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Вход в Sirius Future",
+  "login.btn": "Войти",
+  "login.subject": "Выберите предмет",
+  "login.password": "Пароль",
+  "login.rememberMe": "Запомнить меня",
+  "login.forgotPassword": "Я забыл пароль",
+  "login.coach": "Войти как тренер",
+  "login.noAcc": "Нет аккаунта?",
+  "login.register": "Зарегистрироваться"
+}

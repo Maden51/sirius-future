@@ -5,18 +5,19 @@ import Form from '../../components/form';
 import FormInput from '../../components/form-input';
 import FormLabel from '../../components/form-label';
 import FormLink from '../../components/form-link';
+import useTranslate from '../../hooks/use-translate';
+import LocaleSelect from '../../components/locale-select';
 
 const Wrapper = styled.div`
-  display: flex;
+  display: grid;
+  padding-bottom: 2rem;
   align-items: center;
   justify-content: center;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+  height: 100vh;
 `;
 
 const LoginBox = styled.div`
-  max-width: 340px;
-  width: 100%;
+  width: 340px;
 `;
 
 const Logo = styled.img`
@@ -41,23 +42,25 @@ function Login() {
   const [subjectName, setSubjectName] = useState('');
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
-  const [error, setError] = useState<boolean>(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
+
+  const { t }: any = useTranslate();
 
   return (
     <PageLayot>
       <Wrapper>
         <LoginBox>
           <Logo src="../src/assets/images/logo.svg" alt="Логотип Sirius Future" />
-          <Form title="Вход в Sirius Future" btnTitle="Войти" onSubmit={handleSubmit} error={error}>
+          <Form title={t('title')} btnTitle={t('login.btn')} onSubmit={handleSubmit} error={error}>
             <FormLabel title="Выбрать предмет" id="subject"></FormLabel>
             <FormInput
               id="subject"
               name="subject"
-              placeholder="Выбрать предмет"
+              placeholder={t('login.subject')}
               type="text"
               value={subjectName}
               onChange={setSubjectName}
@@ -66,7 +69,7 @@ function Login() {
             <FormInput
               id="password"
               name="password"
-              placeholder="Пароль"
+              placeholder={t('login.password')}
               type="password"
               value={password}
               onChange={setPassword}
@@ -81,14 +84,15 @@ function Login() {
             <FormLabel title="Запомнить меня" id="remember"></FormLabel>
           </Form>
           <LinkBox>
-            <FormLink link="/passRemember" name="Я забыл пароль"></FormLink>
-            <FormLink link="/loginAsCoach" name="Войти как тренер"></FormLink>
+            <FormLink link="/passRemember" name={t('login.forgotPassword')}></FormLink>
+            <FormLink link="/loginAsCoach" name={t('login.coach')}></FormLink>
           </LinkBox>
           <AccBox>
-            <p>Нет аккаунта?</p>
-            <FormLink link="/register" name="Зарегистрироваться"></FormLink>
+            <p>{t('login.noAcc')}</p>
+            <FormLink link="/register" name={t('login.register')}></FormLink>
           </AccBox>
         </LoginBox>
+        <LocaleSelect />
       </Wrapper>
     </PageLayot>
   );
