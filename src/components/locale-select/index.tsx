@@ -8,9 +8,16 @@ const StyledButton = styled.button`
   background: transparent;
   cursor: pointer;
   transition: scale 0.3s ease-in;
+
   &:disabled {
     cursor: default;
     scale: 1.4;
+    pointer-events: none;
+  }
+
+  &:hover {
+    color: #5b4e94;
+    scale: 1.1;
   }
 `;
 
@@ -24,7 +31,6 @@ const LocaleBox = styled.div`
 
 function LocaleSelect() {
   const { lang, setLang }: any = useTranslate();
-  const [selected, setSelected] = useState();
 
   const options = {
     lang: useMemo(
