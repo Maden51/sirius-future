@@ -9,6 +9,7 @@ import useTranslate from '../../hooks/use-translate';
 import LocaleSelect from '../../components/locale-select';
 import FormCheckbox from '../../components/form-checkbox';
 import siriusLogo from '../../assets/images/logo.svg';
+import hidePass from '../../assets/images/eye-cross.svg';
 
 const Wrapper = styled.div`
   display: grid;
@@ -51,6 +52,7 @@ const AccBox = styled.div`
 function Login() {
   const [subjectName, setSubjectName] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
 
@@ -75,16 +77,20 @@ function Login() {
               placeholder={t('login.subject')}
               type="text"
               value={subjectName}
+              setShowPassword={setShowPassword}
               onChange={setSubjectName}
             />
             <FormLabel hidden title="Пароль" id="password"></FormLabel>
             <FormInput
               id="password"
               name="password"
+              showPassword={showPassword}
               placeholder={t('login.password')}
               type="password"
+              icon={hidePass}
               value={password}
               onChange={setPassword}
+              setShowPassword={setShowPassword}
             />
             <FormCheckbox
               id="remember"

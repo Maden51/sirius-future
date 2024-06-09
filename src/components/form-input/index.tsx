@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, memo } from 'react';
 import styled from 'styled-components';
+import PasswordIcon from '../password-icon';
 
 type FormInputProps = {
   type: string;
@@ -8,6 +9,8 @@ type FormInputProps = {
   placeholder?: string;
   value?: string;
   icon?: string;
+  showPassword?: boolean;
+  setShowPassword: Dispatch<SetStateAction<boolean>>;
   onChange: Dispatch<SetStateAction<string>>;
 };
 
@@ -25,22 +28,39 @@ const Input = styled.input`
   cursor: pointer;
 `;
 
+const Icon = styled.span`
+  position: absolute;
+  min-width: 10px;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+`;
+
 function FormInput(props: FormInputProps) {
   const onChange = (e: any) => {
     props.onChange(e.target.value);
   };
 
-  // useLayoutEffect(() => props.onChange(props.value), [props.value]);
+  const togglePass = () => {
+    props.setShowPassword(!props.showPassword);
+  };
 
   return (
-    <Input
-      type={props.type}
-      value={props.value}
-      id={props.id}
-      name={props.name}
-      placeholder={props.placeholder}
-      onChange={onChange}
-    />
+    <>
+      <Input
+        type={props.showPassword ? 'text' : props.type}
+        value={props.value}
+        id={props.id}
+        name={props.name}
+        placeholder={props.placeholder}
+        onChange={onChange}
+      />
+      {props.type === 'password' ? (
+        <Icon onClick={togglePass}>
+          <PasswordIcon show={props.showPassword} />
+        </Icon>
+      ) : null}
+    </>
   );
 }
 
