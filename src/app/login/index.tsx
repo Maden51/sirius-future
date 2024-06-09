@@ -7,6 +7,8 @@ import FormLabel from '../../components/form-label';
 import FormLink from '../../components/form-link';
 import useTranslate from '../../hooks/use-translate';
 import LocaleSelect from '../../components/locale-select';
+import FormCheckbox from '../../components/form-checkbox';
+import siriusLogo from '../../assets/images/logo.svg';
 
 const Wrapper = styled.div`
   display: grid;
@@ -20,10 +22,15 @@ const LoginBox = styled.div`
   width: 340px;
 `;
 
+const LogoBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Logo = styled.img`
   width: 80px;
   height: 80px;
-  text-align: center;
 `;
 
 const LinkBox = styled.div`
@@ -35,6 +42,9 @@ const LinkBox = styled.div`
 
 const AccBox = styled.div`
   margin-top: 4em;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   text-align: center;
 `;
 
@@ -54,9 +64,11 @@ function Login() {
     <PageLayot>
       <Wrapper>
         <LoginBox>
-          <Logo src="../src/assets/images/logo.svg" alt="Логотип Sirius Future" />
+          <LogoBox>
+            <Logo src={siriusLogo} alt="Логотип Sirius Future" />
+          </LogoBox>
           <Form title={t('title')} btnTitle={t('login.btn')} onSubmit={handleSubmit} error={error}>
-            <FormLabel title="Выбрать предмет" id="subject"></FormLabel>
+            <FormLabel hidden title="Выбрать предмет" id="subject"></FormLabel>
             <FormInput
               id="subject"
               name="subject"
@@ -65,7 +77,7 @@ function Login() {
               value={subjectName}
               onChange={setSubjectName}
             />
-            <FormLabel title="Пароль" id="password"></FormLabel>
+            <FormLabel hidden title="Пароль" id="password"></FormLabel>
             <FormInput
               id="password"
               name="password"
@@ -74,14 +86,14 @@ function Login() {
               value={password}
               onChange={setPassword}
             />
-            <FormInput
+            <FormCheckbox
               id="remember"
               name="remember"
               type="checkbox"
               checked={checked}
               onChange={setChecked}
+              label={t('login.rememberMe')}
             />
-            <FormLabel title="Запомнить меня" id="remember"></FormLabel>
           </Form>
           <LinkBox>
             <FormLink link="/passRemember" name={t('login.forgotPassword')}></FormLink>

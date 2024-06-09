@@ -8,13 +8,26 @@ const HiddenLabel = styled.label`
   clip: rect(1px, 1px, 1px, 1px);
 `;
 
+const ShowedLabel = styled.label`
+  font-size: 0.75rem;
+`;
+
 type FormLabelProps = {
   title: string;
   id: string;
+  hidden?: boolean;
 };
 
 function FormLabel(props: FormLabelProps) {
-  return <HiddenLabel htmlFor={props.id}>{props.title}</HiddenLabel>;
+  return (
+    <>
+      {props.hidden ? (
+        <HiddenLabel htmlFor={props.id}>{props.title}</HiddenLabel>
+      ) : (
+        <ShowedLabel htmlFor={props.id}>{props.title}</ShowedLabel>
+      )}
+    </>
+  );
 }
 
 export default memo(FormLabel);

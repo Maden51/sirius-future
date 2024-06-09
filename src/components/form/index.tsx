@@ -16,7 +16,7 @@ const StyledForm = styled.form`
 
 const Title = styled.h1`
   font-size: 2.5em;
-  margin-top: 2em;
+  margin-top: 2rem;
   color: #323854;
 `;
 

@@ -7,9 +7,8 @@ type FormInputProps = {
   name: string;
   placeholder?: string;
   value?: string;
-  checked?: boolean;
   icon?: string;
-  onChange: Dispatch<SetStateAction<string>> | Dispatch<SetStateAction<boolean>>;
+  onChange: Dispatch<SetStateAction<string>>;
 };
 
 const Input = styled.input`
