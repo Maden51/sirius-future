@@ -1,10 +1,10 @@
-import { memo, useMemo, useState } from 'react';
+import { memo, useMemo } from 'react';
 import useTranslate from '../../hooks/use-translate';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
   border: none;
-  color: #7362bc;
+  color: var(--light-gray);
   background: transparent;
   cursor: pointer;
   transition: scale 0.3s ease-in;
@@ -13,10 +13,10 @@ const StyledButton = styled.button`
     cursor: default;
     scale: 1.4;
     pointer-events: none;
+    color: var(--dark-violet);
   }
 
   &:hover {
-    color: #5b4e94;
     scale: 1.1;
   }
 `;

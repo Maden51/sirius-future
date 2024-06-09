@@ -6,6 +6,13 @@
   
 }
 
+:root {
+  --dark-gray: #323854;
+  --link-color: #008AFF;
+  --dark-violet: #7362BC;
+  --light-gray: #79747F;
+}
+
 body {
   background: #fdfdff;
 }

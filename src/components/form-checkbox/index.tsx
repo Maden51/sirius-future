@@ -53,7 +53,7 @@ const CheckBoxLabel = styled.div`
   margin-left: 0.25em;
   font-size: 0.75em;
   line-height: 135%;
-  color: #79747f;
+  color: var(--light-gray);
 `;
 
 function FormCheckbox(props: FormCheckboxProps) {

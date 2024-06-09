@@ -8,7 +8,7 @@ type FormLinkProps = {
 };
 
 const StyledLink = styled(Link)`
-  color: #008aff;
+  color: var(--link-color);
   line-height: 135%;
   text-decoration: none;
 

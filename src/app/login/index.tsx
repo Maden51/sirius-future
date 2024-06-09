@@ -9,7 +9,6 @@ import useTranslate from '../../hooks/use-translate';
 import LocaleSelect from '../../components/locale-select';
 import FormCheckbox from '../../components/form-checkbox';
 import siriusLogo from '../../assets/images/logo.svg';
-import hidePass from '../../assets/images/eye-cross.svg';
 
 const Wrapper = styled.div`
   display: grid;
@@ -87,7 +86,6 @@ function Login() {
               showPassword={showPassword}
               placeholder={t('login.password')}
               type="password"
-              icon={hidePass}
               value={password}
               onChange={setPassword}
               setShowPassword={setShowPassword}

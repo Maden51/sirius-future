@@ -8,7 +8,6 @@ type FormInputProps = {
   name: string;
   placeholder?: string;
   value?: string;
-  icon?: string;
   showPassword?: boolean;
   setShowPassword: Dispatch<SetStateAction<boolean>>;
   onChange: Dispatch<SetStateAction<string>>;
@@ -19,7 +18,7 @@ const Input = styled.input`
   font-size: 0.75rem;
   line-height: 135%;
   padding: 0.6rem 0;
-  color: #323854;
+  color: var(--dark-gray);
   border-radius: 8px;
   border: 1px solid #ececec;
   background: #fff;
