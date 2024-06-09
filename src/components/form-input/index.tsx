@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, memo } from 'react';
 import styled from 'styled-components';
-import PasswordIcon from '../password-icon';
+import PasswordIcon from '../../svg/password-icon';
 
 type FormInputProps = {
   type: string;

@@ -10,7 +10,10 @@
   --dark-gray: #323854;
   --link-color: #008AFF;
   --dark-violet: #7362BC;
+  --light-violet: #EEEEFF;
   --light-gray: #79747F;
+  --nav-primary: #434B74;
+  --nav-active: #fff;
 }
 
 body {
@@ -19,6 +22,10 @@ body {
 
 img {
   max-width: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 @font-face {

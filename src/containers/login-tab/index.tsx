@@ -2,7 +2,7 @@ import { memo } from 'react';
 import styled from 'styled-components';
 import chatIcon from '../../assets/images/Chat.svg';
 import userAvatar from '../../assets/images/avatar.png';
-import arrow from '../../assets/images/Arrow.svg';
+import LoginTabArrow from '../../svg/loginTab-arrow';
 
 const Wrapper = styled.section`
   max-width: 1154px;
@@ -15,7 +15,7 @@ const Wrapper = styled.section`
   box-shadow: 0 1px 13px -2px #8f8fb7e4;
 `;
 
-const Title = styled.h1`
+const Title = styled.div`
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--dark-gray);
@@ -29,6 +29,7 @@ const TitleName = styled(Title)`
 const LogActions = styled.div`
   margin-left: auto;
   display: flex;
+  align-items: center;
 `;
 
 const ChatBox = styled.div`
@@ -59,6 +60,7 @@ const ChatIcon = styled.img`
 
 const UserArrow = styled.div`
   margin-left: 0.55em;
+  cursor: pointer;
 `;
 
 const MessageCount = styled.div`
@@ -92,7 +94,9 @@ function LoginTab() {
         <UserBox>
           <UserAvatar src={userAvatar} alt="Фото профиля" />
         </UserBox>
-        <UserArrow></UserArrow>
+        <UserArrow>
+          <LoginTabArrow />
+        </UserArrow>
       </LogActions>
     </Wrapper>
   );
