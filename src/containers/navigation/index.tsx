@@ -1,9 +1,10 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 import logo from '../../assets/images/FullLogo.svg';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import * as navIcons from '../../svg/navigation-icons';
 import advBg from '../../assets/images/gift.png';
+import NavLink from '../../components/nav-link';
 
 const navOptions = [
   {
@@ -72,7 +73,6 @@ const Logo = styled.img`
 `;
 
 const NavBar = styled.nav`
-  max-width: 216px;
   width: 100%;
 `;
 
@@ -80,26 +80,7 @@ const NavList = styled.ul`
   list-style-type: none;
 `;
 
-const NavListItem = styled.li`
-  padding-left: 44px;
-`;
-
-const NavListIcon = styled.div`
-  width: 24px;
-  height: 24px;
-  padding-bottom: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const NavListLink = styled(Link)`
-  padding: 0.5em 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--nav-primary);
-`;
+const NavListItem = styled.li``;
 
 const AdvBox = styled.div`
   color: var(--dark-gray);
@@ -141,7 +122,7 @@ const AdvBtn = styled.button`
 
 function Navigation() {
   const { pathname } = useLocation();
-  console.log(pathname);
+
   return (
     <Wrapper>
       <Logo src={logo} alt="Логотип Sirius Future" />
@@ -149,10 +130,7 @@ function Navigation() {
         <NavList>
           {navOptions.map((item) => (
             <NavListItem key={item.title}>
-              <NavListLink to={item.link}>
-                <NavListIcon>{item.icon()}</NavListIcon>
-                {item.title}
-              </NavListLink>
+              <NavLink pathname={pathname} link={item.link} title={item.title} icon={item.icon()} />
             </NavListItem>
           ))}
         </NavList>
