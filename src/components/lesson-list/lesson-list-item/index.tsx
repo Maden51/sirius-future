@@ -1,12 +1,14 @@
 import { memo } from 'react';
 import styled from 'styled-components';
-import teacherIcon from '../../assets/images/teacher-icon.svg';
+import teacherIcon from '../../../assets/images/teacher-icon.svg';
+import LessonListitem from './module';
 
 const StyledDiv = styled.div`
   padding: 10px 0;
   padding-right: 4rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
   color: var(--dark-gray);
 
@@ -39,7 +41,7 @@ const StyledDataText = styled(StyledData)`
 const StyledTitle = styled.div`
   line-height: 135%;
   margin-left: 1rem;
-  width: fit-content;
+  width: 30%;
 `;
 
 const StyledTime = styled(StyledDataText)`
@@ -74,16 +76,20 @@ const StyledButton = styled.button<{ $color?: string; $bg?: string; $border?: st
   cursor: pointer;
 `;
 
-function LessonListItem() {
+type LessonListItemProps = {
+  item: LessonListitem;
+};
+
+function LessonListItem({ item }: LessonListItemProps) {
   return (
     <StyledDiv>
       <StyledData>
-        1<StyledDataText>мая</StyledDataText>
+        {/* Добавить компонент и функцию времени */}1<StyledDataText>мая</StyledDataText>
       </StyledData>
-      <StyledTitle>Ментальная арифметика</StyledTitle>
-      <StyledTime>14:00-14:25</StyledTime>
+      <StyledTitle>{item.title}</StyledTitle>
+      <StyledTime>{item.time}</StyledTime>
       <StyledTeacherIcon src={teacherIcon} alt="иконка учителя" />
-      <StyledTeacher>Белкина Инна</StyledTeacher>
+      <StyledTeacher>{item.teacher}</StyledTeacher>
       <StyledControls>
         <StyledButton>Button</StyledButton>
         <StyledButton $color="#fff" $bg="#8D7FC7" $border="#fff">

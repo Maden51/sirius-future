@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import styled from 'styled-components';
-import ScheduleListItem from './schedule-list-item';
-import ScheduleListItemProps from './module';
+import LessonListItem from './lesson-list-item';
+import LessonListitem from './lesson-list-item/module';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -25,20 +25,20 @@ const List = styled.ul`
   }
 `;
 
-type ScheduleListProps = {
-  list: ScheduleListItemProps[];
+type LessonListProps = {
+  list: LessonListitem[];
 };
 
-function ScheduleList({ list }: ScheduleListProps) {
+function LessonList({ list }: LessonListProps) {
   return (
     <Wrapper>
       <List>
         {list.map((item) => (
-          <ScheduleListItem key={item.id} item={item} />
+          <LessonListItem key={item.id} item={item} />
         ))}
       </List>
     </Wrapper>
   );
 }
 
-export default memo(ScheduleList);
+export default memo(LessonList);

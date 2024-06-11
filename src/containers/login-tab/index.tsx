@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import chatIcon from '../../assets/images/Chat.svg';
 import userAvatar from '../../assets/images/avatar.png';
 import LoginTabArrow from '../../svg/loginTab-arrow';
+import ModalLayout from '../../components/modal-layout';
 
 const Wrapper = styled.section`
+  position: relative;
   max-width: 1154px;
   width: 100%;
   display: flex;
@@ -97,6 +99,7 @@ function LoginTab() {
         <UserArrow>
           <LoginTabArrow />
         </UserArrow>
+        <ModalLayout />
       </LogActions>
     </Wrapper>
   );

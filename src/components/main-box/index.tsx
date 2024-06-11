@@ -5,6 +5,7 @@ type MainBoxProps = {
   title: string;
   btnTitle: string;
   btnMaxWidth: string;
+  btnMg?: string;
   maxWidth: string;
   children: ReactNode;
 };
@@ -23,8 +24,10 @@ const Title = styled.h2`
   margin-bottom: 1rem;
 `;
 
-const Button = styled.button<{ $btnMaxWidth: string }>`
+const Button = styled.button<{ $btnMaxWidth: string; $btnMg?: string }>`
   background: var(--light-violet);
+  display: block;
+  margin: 0 ${(props) => props.$btnMg};
   text-align: center;
   padding: 0.55rem;
   width: 100%;
@@ -44,7 +47,9 @@ function MainBox(props: MainBoxProps) {
     <Wrapper $divMaxWidth={props.maxWidth}>
       <Title>{props.title}</Title>
       {props.children}
-      <Button $btnMaxWidth={props.btnMaxWidth}>{props.btnTitle}</Button>
+      <Button $btnMaxWidth={props.btnMaxWidth} $btnMg={props.btnMg}>
+        {props.btnTitle}
+      </Button>
     </Wrapper>
   );
 }

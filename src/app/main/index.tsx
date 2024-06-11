@@ -10,7 +10,7 @@ import homeWork from '../../assets/images/homework.svg';
 import report from '../../assets/images/report.svg';
 import MainBox from '../../components/main-box';
 import ScheduleList from '../../components/schedule-list';
-import LessonListItem from '../../components/lesson-list-item';
+import LessonList from '../../components/lesson-list';
 
 const MainWrapper = styled.main`
   width: 100%;
@@ -62,6 +62,58 @@ const Col = styled.div`
   row-gap: 20px;
 `;
 
+const BalanceList = [
+  {
+    title: 'Ментальная Арифметика',
+    count: 32,
+    id: 0,
+  },
+  {
+    title: 'Программирование',
+    count: 0,
+    id: 1,
+  },
+  {
+    title: 'Скорочтение',
+    count: 4,
+    id: 2,
+  },
+  {
+    title: 'Таблица умножения',
+    count: 1,
+    id: 3,
+  },
+  {
+    title: 'Подготовка к школе',
+    count: 5,
+    id: 4,
+  },
+];
+
+const UpcomingLessons = [
+  {
+    title: 'Ментальная арифметика',
+    date: '01.05.2024',
+    time: '14:00-14:25',
+    teacher: 'Белкина Инна',
+    id: 0,
+  },
+  {
+    title: 'Программирование',
+    date: '30.10.2024',
+    time: '11:00-11:11',
+    teacher: 'Животновская Оксана',
+    id: 1,
+  },
+  {
+    title: 'Скорочтение',
+    date: '16.11.2024',
+    time: '09:00-09:45',
+    teacher: 'Мин Елена',
+    id: 2,
+  },
+];
+
 function Main() {
   return (
     <PageLayot>
@@ -90,16 +142,15 @@ function Main() {
                 btnTitle="Button"
                 maxWidth="344px"
                 btnMaxWidth="288px">
-                <ScheduleList />
+                <ScheduleList list={BalanceList} />
               </MainBox>
               <MainBox
                 title="Ближайшие уроки"
                 btnTitle="Button"
                 maxWidth="708px"
+                btnMg="auto"
                 btnMaxWidth="344px">
-                <LessonListItem />
-                <LessonListItem />
-                <LessonListItem />
+                <LessonList list={UpcomingLessons} />
               </MainBox>
             </Row>
           </MainContent>
